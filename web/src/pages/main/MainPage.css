@@ -23,13 +23,28 @@ body {
 }
 
 .LogoBox {
+    position: absolute;
     float: left;
+}
+
+.LogoBackground {
+    position: absolute;
+    margin-top: 77px;
+    height: 20px;
+    width: 300px;
+    float: left;
+    background-color: #292b3b;
+    box-shadow: 10px 5px #15151b;
 }
 
 .LoginBox {
     float: right;
     width: 280px;
     margin-top: 19px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
 
 .SignIn {
