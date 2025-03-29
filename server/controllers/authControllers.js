@@ -1,6 +1,7 @@
 //로그인, 회원가입 관련
 const db = require('../lib/db.js');
 const bcrypt = require('bcrypt');
+const express = require("express"); 
 const router = express.Router();
 
 app.use(express.json());
@@ -95,5 +96,4 @@ router.route("/logout").post(async (req, res) =>{
 
 })
 
-
-
+module.exports = router;

@@ -1,8 +1,9 @@
 const express = require('express'); 
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);  // `mysql-session`을 `express-session`과 연결
+const authRouter = require("./controllers/authControllers.js");
+
 const app = express(); 
-const port = 3001; 
 const options = require('./lib/session.js')
 
 
@@ -17,15 +18,17 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.use("/auth", authRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello, World! 서버가 정상적으로 작동합니다.");
 });
 
 
-
-
-
-app.listen(port, () => {
-  console.log(`서버가 실행 중입니다! http://localhost:${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ 서버 실행 중: http://localhost:${PORT}`);
 });
+
+
+
