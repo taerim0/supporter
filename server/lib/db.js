@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-  host: 'localhost',       // 데이터베이스가 실행 중인 서버 주소
-  user: 'root',            // MySQL 사용자 계정
-  password: 'worud8457',            // MySQL 비밀번호
-  database: 'users_db' // 사용할 데이터베이스 이름
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE 
 });
 
 db.connect((err) => {
@@ -16,3 +16,5 @@ db.connect((err) => {
 });
 
 module.exports = db;
+
+
