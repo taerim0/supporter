@@ -6,7 +6,8 @@ const AuthPage = () => {
     const navigation = useNavigate();
     const location = useLocation();
 
-    const mode = location.state;
+    const [mode, setMode] = useState<string>();
+    setMode(location.state);
 
     const [ID, setID] = useState();
     const [PW, setPW] = useState();
@@ -18,16 +19,37 @@ const AuthPage = () => {
         })
         .then((res) => res.json())
         .then((json) => {
-            if (json.login_status === 'isloggedin')
-                return 1
+            if (json.login_status === 'isloggedin') {
+                setMode("Log Out");
+            }
+            else {
+                if (mode === undefined)
+                    setMode("Log In");
+            }
         })
     })
 
-    return (
-        <div>
-            디스 이즈 로긴
-        </div>
-    )
+    if (mode === "Log In") {
+        return (
+            <div>
+                로그인
+            </div>
+        )
+    }
+    else if (mode === "Register") {
+        return (
+            <div>
+                회원가입
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
+                로그아웃
+            </div>
+        )
+    }
 };
 
 export default AuthPage;

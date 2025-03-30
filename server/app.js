@@ -2,6 +2,9 @@ const express = require('express');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);  // `mysql-session`을 `express-session`과 연결
 const authRouter = require("./controllers/authControllers.js");
+const dotenv = require('dotenv');
+
+dotenv.config({ path: '../.env'});
 
 const app = express(); 
 const options = require('./lib/session.js')
@@ -25,8 +28,9 @@ app.get("/", (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 1141;
 app.listen(PORT, "0.0.0.0", () => {
+  console.log(process.env.MYSQL_PASSWORD);
   console.log(`✅ 서버 실행 중: http://localhost:${PORT}`);
 });
 

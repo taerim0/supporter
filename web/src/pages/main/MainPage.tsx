@@ -29,10 +29,10 @@ const MainPage = () => {
                     <img src={Logo} className='Logo' />
                 </div>
                 <div className="LoginBox">
-                    <div className="SignIn" onClick={()=>{navigation('/auth')}}>
+                    <div className="SignIn" onClick={()=>{navigation('/auth', {state : "Log Out"})}}>
                         <a>로그아웄</a>
                     </div>
-                    <div className="SignUp" onClick={()=>{navigation('/auth')}}>
+                    <div className="SignUp" onClick={()=>{navigation('/auth', {state : "Log Out"})}}>
                         <a>로그아웄</a>
                     </div>
                 </div>

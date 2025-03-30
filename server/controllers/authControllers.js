@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt');
 const express = require("express"); 
 const router = express.Router();
 
+const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // 폼 데이터 ex)로그인, 회원가입 받기 위해 사용
 app.use(router) // -> 사용한 미들웨어 app에게 알려주기
