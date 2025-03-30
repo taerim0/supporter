@@ -13,12 +13,13 @@ const AuthPage = () => {
     const [PWC, setPWC] = useState();
 
     useEffect(() => {
-        fetch("https://localhost:3000/api/auth/auth_check", {
+        fetch("https://localhost:3000/auth/login_status", {
             credentials: 'include',
         })
-        .then((res) => {res.json})
+        .then((res) => res.json())
         .then((json) => {
-            
+            if (json.login_status === 'isloggedin')
+                return 1
         })
     })
 

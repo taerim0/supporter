@@ -16,7 +16,7 @@ router.route("/login_status").get(async (req, res) => { // 로그인 상태를 �
    const sendData = {login_status: ''};
    if(req.session.login === true){
     console.log('로그인 상태')
-    sendData.login_status = 'islogined'
+    sendData.login_status = 'isloggedin'
    }
 
   return res.send(sendData);

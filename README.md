@@ -22,8 +22,7 @@ main - auth
 
 ## API
 
-### auth/auth_check
+### auth/login_status
 - 로그인 상태 확인
 
 ### auth/logout_process
-- 세션 제거 및 메인 라우트 페이지로 이동
